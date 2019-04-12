@@ -1,0 +1,27 @@
+#dashboard {
+    text-align: center;
+    margin-top: 80px;
+    background-color: gainsboro;
+    border-color: grey;
+    border-radius: 5px;
+    height: 150px;
+}
+
+#inProgress {
+    margin-left: 100px;
+}
+
+#done h2 {
+    margin-left: 55px;
+}
+
+.card {
+    text-align: center;
+    margin-bottom: 5px;
+    margin-left: 10px;
+    padding-bottom: 3px;
+    background-color: gainsboro;
+    box-shadow: 13px;
+    border-radius: 5px;
+    width: 250px;
+}

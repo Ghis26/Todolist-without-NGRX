@@ -1,0 +1,49 @@
+<div class="container-fluid">
+  <div class="row">
+    <div id="dashboard" class="col-3">
+      <h2>Dashboard</h2>
+      <hr>
+      <p>Number of Todos in progress : {{ todosInProgress }}</p>
+      <p>Number of Todos done : {{ todosDone }}</p>
+    </div>
+
+    <div id="inProgress" class="col-4">
+      <h2> Todos in progress</h2>
+      <div *ngFor="let todo of todos">
+        <div class="card" *ngIf="todo.state == 'in progress'">
+          <div class="card-body">
+            <h3 class="card-title">
+              {{todo.title}}
+            </h3>
+            <hr>
+            <p class="card-text">
+              Text : {{todo.body}}
+            </p>
+            <p class="card-text">
+              State : {{todo.state}}
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+      <div id="done" class="col-4"> 
+      <h2> Todos done</h2>
+      <div *ngFor="let todo of todos">
+        <div class="card" *ngIf="todo.state == 'done'">
+          <div class="card-body">
+            <h3 class="card-title">
+              {{todo.title}}
+            </h3>
+            <hr>
+            <p class="card-text">
+              Text : {{todo.body}}
+            </p>
+            <p class="card-text">
+              State : {{todo.state}}
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
