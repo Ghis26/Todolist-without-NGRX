@@ -13,7 +13,7 @@
         <div class="card" *ngIf="todo.state == 'in progress'">
           <div class="card-body">
             <h3 class="card-title">
-              {{todo.title}}
+              {{todo.id}} - {{todo.title}}
             </h3>
             <hr>
             <p class="card-text">
@@ -23,6 +23,7 @@
               State : {{todo.state}}
             </p>
           </div>
+          <mat-checkbox (change)="validateTodo(todo.id)" [checked]="isChecked">I did the todo !</mat-checkbox>
         </div>
       </div>
     </div>
@@ -32,7 +33,7 @@
         <div class="card" *ngIf="todo.state == 'done'">
           <div class="card-body">
             <h3 class="card-title">
-              {{todo.title}}
+             {{todo.id}} - {{todo.title}}
             </h3>
             <hr>
             <p class="card-text">

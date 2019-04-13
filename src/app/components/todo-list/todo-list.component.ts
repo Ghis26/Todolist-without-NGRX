@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, Output } from '@angular/core';
 import { Todo } from '../../todo';
 import { Backend } from '../../backend/backend.service';
 
@@ -10,8 +10,10 @@ import { Backend } from '../../backend/backend.service';
 export class TodoListComponent implements OnInit {
 
   public todos: Todo[];
-  public todosInProgress = 0;
-  public todosDone = 0;
+  public todosInProgress;
+  public todosDone;
+  public isChecked = false;
+  public todoId;
 
   constructor(private backendService: Backend) {
     this.backendService.getJson().subscribe((data) => {
@@ -24,6 +26,8 @@ export class TodoListComponent implements OnInit {
   }
 
   private getTotalTodos(): void {
+    this.todosInProgress = 0;
+    this.todosDone = 0;
     this.todos.forEach(todo => {
       if (todo.state === 'in progress') {
         this.todosInProgress++;
@@ -31,6 +35,14 @@ export class TodoListComponent implements OnInit {
         this.todosDone++;
       }
     });
+  }
+
+  public validateTodo(id) {
+    const index = id - 1;
+    this.todos[index].state = 'done';
+    console.log(this.todos);
+    this.backendService.putJson(this.todos);
+    this.getTotalTodos();
   }
 
 }

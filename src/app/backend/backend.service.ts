@@ -14,4 +14,9 @@ export class Backend {
     public getJson(): Observable<any> {
         return this.http.get(this.jsonTodos);
     }
+
+    public putJson(todos) {
+     console.log(JSON.stringify(todos));
+     this.http.put(this.jsonTodos, JSON.stringify(todos), { headers: { 'Content-Type': 'application/json' } });
+    }
 }
