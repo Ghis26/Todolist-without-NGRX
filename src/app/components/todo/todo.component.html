@@ -1,0 +1,14 @@
+<div class="card-body">
+  <h1 class="card-title">
+    {{todo.id}} - {{todo.title}}
+  </h1>
+  <hr>
+</div>
+<p class="card-text">
+  Text : {{todo.body}}
+</p>
+<p class="card-text">
+  State : {{todo.state}}
+</p>
+
+<button mat-fab (click)="goBack()">Go Back</button>

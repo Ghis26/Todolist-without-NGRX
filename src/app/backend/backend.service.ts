@@ -16,7 +16,6 @@ export class Backend {
     }
 
     public putJson(todos) {
-     console.log(JSON.stringify(todos));
      this.http.put(this.jsonTodos, JSON.stringify(todos), { headers: { 'Content-Type': 'application/json' } });
     }
 }

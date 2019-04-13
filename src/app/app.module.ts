@@ -9,11 +9,14 @@ import { AppComponent } from './app.component';
 import { TodoListComponent } from './components/todo-list/todo-list.component';
 import { Backend } from './backend/backend.service';
 import { HttpClientModule } from '@angular/common/http';
+import { TodoComponent } from './components/todo/todo.component';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
     AppComponent,
-    TodoListComponent
+    TodoListComponent,
+    TodoComponent
   ],
   imports: [
     BrowserModule,
