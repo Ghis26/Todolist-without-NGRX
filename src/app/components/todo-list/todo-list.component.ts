@@ -39,9 +39,15 @@ export class TodoListComponent implements OnInit {
 
   public validateTodo(id) {
     const index = id - 1;
-    this.todos[index].state = 'done';
-    this.backendService.putJson(this.todos);
+    const todo = this.todos[index];
+    todo.state = 'done';
+    this.backendService.putJson(todo);
     this.getTotalTodos();
+  }
+
+  public deleteTodo(id) {
+    this.backendService.deleteJson(id);
+    location.reload();
   }
 
 }

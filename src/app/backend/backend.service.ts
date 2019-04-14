@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
 @Injectable()
 export class Backend {
 
-    private jsonTodos = 'http://localhost:4200/assets/backend.json';
+    private jsonTodos = 'http://localhost:3000/todos';
 
     constructor(private http: HttpClient) {
     }
@@ -15,7 +15,17 @@ export class Backend {
         return this.http.get(this.jsonTodos);
     }
 
-    public putJson(todos) {
-     this.http.put(this.jsonTodos, JSON.stringify(todos), { headers: { 'Content-Type': 'application/json' } });
+    public postJson(newTodo) {
+        return this.http.post(`${this.jsonTodos}`, JSON.stringify(newTodo), { headers: { 'Content-Type': 'application/json' } })
+        .toPromise();
+    }
+
+    public putJson(todo) {
+        return this.http.put(`${this.jsonTodos}/${todo.id}`, JSON.stringify(todo),
+        { headers: { 'Content-Type': 'application/json' } }).toPromise();
+    }
+
+    public deleteJson(id) {
+        return this.http.delete(`${this.jsonTodos}/${id}`).toPromise();
     }
 }

@@ -1,0 +1,34 @@
+{
+  "todos": [
+    {
+      "id": "2",
+      "title": "Title 2",
+      "body": "Some body",
+      "state": "done"
+    },
+    {
+      "id": 4,
+      "title": "test",
+      "body": "test body",
+      "state": "in progress"
+    },
+    {
+      "id": 5,
+      "title": "Second test",
+      "body": "An other test",
+      "state": "done"
+    },
+    {
+      "id": 6,
+      "title": "Third test",
+      "body": "third body test of the test",
+      "state": "in progress"
+    },
+    {
+      "id": 7,
+      "title": "The seventh post",
+      "body": "Ok it's good",
+      "state": "done"
+    }
+  ]
+}

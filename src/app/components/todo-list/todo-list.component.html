@@ -1,5 +1,7 @@
 <h1>Welcome to your To-do List !!</h1>
 <hr>
+
+<button routerLink="/todo/new" mat-fab color="primary"> Add</button>
 <div class="container-fluid">
   <div class="row">
     <div id="dashboard" class="col-3">
@@ -12,13 +14,20 @@
     <div id="inProgress" class="col-4">
       <h2> Todos in progress</h2>
       <div *ngFor="let todo of todos">
-        <div class="card"  *ngIf="todo.state == 'in progress'">
+        <div class="card" *ngIf="todo.state == 'in progress'">
           <div class="card-body">
             <h3 [routerLink]="[ '/todo', todo.id ]" class="card-title">
               {{todo.id}} - {{todo.title}}
             </h3>
           </div>
-          <mat-checkbox (change)="validateTodo(todo.id)" [checked]="isChecked">I did the todo !</mat-checkbox>
+          <div class="row">
+            <div class="col-6">
+              <mat-checkbox (change)="validateTodo(todo.id)" [checked]="isChecked">I did the todo !</mat-checkbox>
+            </div>
+            <div class="col-6 justify-content-end">
+              <button (click)="deleteTodo(todo.id)" mat-raised-button color="warn">Delete</button>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -32,6 +41,7 @@
               {{todo.id}} - {{todo.title}}
             </h3>
           </div>
+          <button (click)="deleteTodo(todo.id)" mat-raised-button color="warn"> Delete</button>
         </div>
       </div>
     </div>
